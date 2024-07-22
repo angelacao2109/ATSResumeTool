@@ -1,7 +1,7 @@
 This project uses the following third-party libraries:
 
-- PyPDF2: https://github.com/py-pdf/PyPDF2 (License: BSD-3-Clause)
-- docx2txt: https://github.com/ankushshah89/python-docx2txt (License: GPL-3.0)
 - spaCy: https://github.com/explosion/spaCy (License: MIT)
-- nltk: https://github.com/nltk/nltk (License: Apache 2.0)
+
 - pandas: https://github.com/pandas-dev/pandas (License: BSD-3-Clause)
+
+- spacypdfreader: [https://github.com/SamEdwardes/spacypdfreader](https://github.com/SamEdwardes/spacypdfreader) (License: MIT)

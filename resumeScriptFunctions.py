@@ -6,39 +6,43 @@ from spacy import displacy
 import webbrowser
 import os
 from spacy.matcher import Matcher
-from spacy.lang.en import English
 import re
+from spacy.lang.en import English
 from spacy.pipeline import EntityRuler
-import resumeScriptFunctions
+import re
+
+
 
 
 nlp = spacy.load("en_core_web_lg")
 
-#Initialize Tkinter Root Window and create Root Object
-root = tkinter.Tk()
-#Hide the Root Window
-root.withdraw()
-
-file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
-print(f"Selected file: {file_path}")
-doc = pdf_reader(file_path, nlp)
-
-remove_ws = " ".join(doc.text.split())
-#print(remove_ws)
-
-doc2 = nlp(remove_ws)
-
-resumeScriptFunctions.get_resume_name(doc2)
 
 
+#find resume name from resume 
+def get_resume_name(doc):
+    for ent in doc.ents:
+        if ent.label_ =="PERSON":
+            break
+    print(ent)
+    
+
+def get_resume_email(doc):    
+    resume_email=""
+    matcher = Matcher(nlp.vocab)
+    pattern = [{"LIKE_EMAIL": True}]
+    matcher.add("EMAIL_ADDRESS", [pattern])
+    for token in doc:
+        matches = matcher(doc)
+        print (matches)
+    print (nlp.vocab[matches[0][0]].text)
+    print(doc[matches[0][1]:matches[0][2]].text)
+    
 
 
 
 
-#This is to have a HTML visual of the doc with labels, POS, etc
-#Uncomment to use it
 '''
-html = displacy.render(doc2, style="ent")
+html = displacy.render(doc_res, style="ent")
 
 output_path = "dependency_parse.html"
 with open(output_path, "w", encoding="utf-8") as f:
@@ -55,6 +59,5 @@ if os.path.isfile(output_path):
         print(f"File {output_path} is empty.")
 else:
     print(f"Failed to create file {output_path}.")
-  
-
+    
 '''
