@@ -38,6 +38,8 @@ def get_resume_email(doc):
     print(doc[matches[0][1]:matches[0][2]].text)
     
 
+    
+
 
 
 

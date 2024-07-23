@@ -10,6 +10,8 @@ from spacy.lang.en import English
 import re
 from spacy.pipeline import EntityRuler
 import resumeScriptFunctions
+from spellchecker import SpellChecker
+from textblob import TextBlob
 
 
 nlp = spacy.load("en_core_web_lg")
