@@ -1,3 +1,4 @@
+import json
 import tkinter
 from tkinter import filedialog
 import spacy
@@ -12,6 +13,7 @@ from spacy.pipeline import EntityRuler
 import resumeScriptFunctions
 from spellchecker import SpellChecker
 from textblob import TextBlob
+from spacy.language import Language
 
 
 nlp = spacy.load("en_core_web_lg")
@@ -31,9 +33,8 @@ remove_ws = " ".join(doc.text.split())
 doc2 = nlp(remove_ws)
 
 resumeScriptFunctions.get_resume_name(doc2)
-
-
-
+resumeScriptFunctions.get_resume_email(doc2)
+resumeScriptFunctions.convert_lang_label(doc2)
 
 
 

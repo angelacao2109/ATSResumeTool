@@ -1,5 +1,5 @@
 # ATS Resume Tool
-An automated tool that optimizes resumes for Applicant Tracking Systems (ATS). Extracts text from PDFs and DOCX files, analyzes keywords using NLP, scores resumes, and provides actionable suggestions to improve ATS compatibility. Built with python, spaCy, and pandas.
+An automated tool that optimizes resumes for Applicant Tracking Systems (ATS). Extracts text from PDF files, analyzes keywords using NLP, scores resumes, and provides actionable suggestions to improve ATS compatibility. Built with python, spaCy, and pandas.
 
 ## License
 
